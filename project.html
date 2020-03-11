@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Scissors</title> 
+    </head>
+   <body>        
+       <script>
+
+         
+//Spits out rock, paper, or scissors
+    function computerPlay(){
+        //pick random # 1-3
+             let num = Math.floor(Math.random() * 3);
+        //compares # to switch statement
+            switch (true) {
+                   
+                case num == 0: 
+                return "Rock" ;
+                    break;
+
+                case num == 1: 
+                return "Paper";
+                    break;
+
+               case num == 2:
+               return "Scissors"; 
+                     break;
+                        
+                default: 
+                    pick = ('Oops!! None chosen');
+                }
+            }
+
+//Capitalizes the users choice
+function capitalize(aString) {
+    let trimmedString = aString.trim();
+    let lowerCaseString = trimmedString.toLowerCase();
+    let firstLetter = lowerCaseString.substr(0,1);
+    firstLetter = firstLetter.toUpperCase();
+    let finalString = firstLetter + lowerCaseString.substr(1)
+        return finalString;
+}
+
+//Plays one round of rock paper scissors
+    function playRound(playerSelection){
+        
+        playerSelection = capitalize(playerSelection);
+        computerSelection = computerPlay();
+    
+    let win = "You win yay";
+    let lose = "Boo you suck";
+    let tie = "Go again!";
+    let wrongInput = "Wrong input you fool!"
+   
+    if (playerSelection != "Rock" && playerSelection != "Scissors" && playerSelection != "Paper"){ 
+        return wrongInput;   
+    }
+
+    switch (true){
+            case playerSelection == computerSelection:
+            return tie;
+            break;
+            case playerSelection == "Rock" && computerSelection == "Scissors":
+            return win;
+            break;
+            case playerSelection == "Rock" && computerSelection == "Paper":
+            return lose;
+            break;
+            case playerSelection == "Paper" && computerSelection == "Rock":
+            return win;
+            break;
+            case playerSelection == "Paper" && computerSelection == "Scissors":
+            return lose;
+            break;
+            case playerSelection == "Scissors" && computerSelection == "Paper":
+            return win;
+            break;
+            case playerSelection == "Scissors" && computerSelection == "Rock":
+            return lose;
+            break;
+        }
+        
+}
+//plays five rounds of rock paper scissors
+function playGame(){
+    console.log(playRound("rock"));
+    console.log(playRound("paper"));
+    console.log(playRound("scissors"));
+    console.log(playRound("paper"));
+    console.log(playRound("rock"));
+}
+//keeps track of the score
+
+
+
+
+
+               
+    
+           
+            
+        </script>
+   </body> 
+</html>
