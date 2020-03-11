@@ -41,27 +41,18 @@ function capitalize(aString) {
         return finalString;
 }
 
-let compScore = 0;
-let playScore = 0;
-//Plays one round of rock paper scissors    
-    function playRound(playerSelection){
-        playerSelection = capitalize(playerSelection);
-        computerSelection = computerPlay();
-
 //**LEFT OFF HERE!** Trying to get the score counter to return the score, instead of just zero!! >:(
-       
-       //keeps track of the score
-       let win = playerSelection +" beats "+ computerSelection + ", You win yay! Computer:" + compScore + ", User:" + playScore;
-        let lose = computerSelection + " beats " + playerSelection + ", Boo you suck! Computer:" + compScore + ", User:" + playScore;
-        let tie = "You both chose " + playerSelection + ", Go again! Computer:" + compScore + ", User:" + playScore;
-        let wrongInput = "Wrong input you fool!";
-        if (win == true){
-        
+let compScore = 0;
+let playScore = 0;     
+
+/*let win;
+let lose;
+        if (win==1){
         playScore = 1 + playScore;
         compScore = 0 + compScore;
         }
 
-        if (lose == true){
+        if (lose==1){
         playScore = 0 + playScore;
         compScore = 1 + compScore;
         }
@@ -69,41 +60,59 @@ let playScore = 0;
         else {
         playScore += 0;
         compScore += 0;
-        }
-    
- 
-    if (playerSelection != "Rock" && playerSelection != "Scissors" && playerSelection != "Paper"){ 
+        }*/
+
+
+//Plays one round of rock paper scissors    
+function playRound(playerSelection){
+    playerSelection = capitalize(playerSelection);
+    computerSelection = computerPlay();
+          
+          let win = playerSelection +" beats "+ computerSelection + ", You win yay! Computer:" + compScore + ", User:" + playScore;
+          let lose = computerSelection + " beats " + playerSelection + ", Boo you suck! Computer:" + compScore + ", User:" + playScore;
+          let tie = "You both chose " + playerSelection + ", Go again! Computer:" + compScore + ", User:" + playScore;
+          let wrongInput = "Wrong input you fool!";
+        
+        if (playerSelection != "Rock" && playerSelection != "Scissors" && playerSelection != "Paper"){ 
         return wrongInput;   
     }
 //compares computer selection to user selection  
     switch (true){
             case playerSelection == computerSelection:
+            /*compScore +=0;
+            playScore +=0;*/
             return tie;
             break;
             case playerSelection == "Rock" && computerSelection == "Scissors":
-            return win;
+                playScore++
+                return win;
             break;
             case playerSelection == "Rock" && computerSelection == "Paper":
-            return lose;
-            break;
+                compScore++
+                return lose;
+              break;
             case playerSelection == "Paper" && computerSelection == "Rock":
-            return win;
-            break;
+                playScore++
+                return win;
+              break;
             case playerSelection == "Paper" && computerSelection == "Scissors":
-            return lose;
-            break;
+                compScore++
+                return lose;
+              break;
             case playerSelection == "Scissors" && computerSelection == "Paper":
-            return win;
-            break;
+                playScore++
+                return win;
+              break;
             case playerSelection == "Scissors" && computerSelection == "Rock":
-            return lose;
+                compScore++
+                return lose;
             break;
-        }
-      
-        
+        }            
 }
+
 //plays five rounds of rock paper scissors
 function playGame(){
+    
     console.log(playRound("rock"));
     console.log(playRound("paper"));
     console.log(playRound("scissors"));
