@@ -41,21 +41,41 @@ function capitalize(aString) {
         return finalString;
 }
 
-//Plays one round of rock paper scissors
+let compScore = 0;
+let playScore = 0;
+//Plays one round of rock paper scissors    
     function playRound(playerSelection){
-        
         playerSelection = capitalize(playerSelection);
         computerSelection = computerPlay();
+
+//**LEFT OFF HERE!** Trying to get the score counter to return the score, instead of just zero!! >:(
+       
+       //keeps track of the score
+       let win = playerSelection +" beats "+ computerSelection + ", You win yay! Computer:" + compScore + ", User:" + playScore;
+        let lose = computerSelection + " beats " + playerSelection + ", Boo you suck! Computer:" + compScore + ", User:" + playScore;
+        let tie = "You both chose " + playerSelection + ", Go again! Computer:" + compScore + ", User:" + playScore;
+        let wrongInput = "Wrong input you fool!";
+        if (win == true){
+        
+        playScore = 1 + playScore;
+        compScore = 0 + compScore;
+        }
+
+        if (lose == true){
+        playScore = 0 + playScore;
+        compScore = 1 + compScore;
+        }
+
+        else {
+        playScore += 0;
+        compScore += 0;
+        }
     
-    let win = "You win yay";
-    let lose = "Boo you suck";
-    let tie = "Go again!";
-    let wrongInput = "Wrong input you fool!"
-   
+ 
     if (playerSelection != "Rock" && playerSelection != "Scissors" && playerSelection != "Paper"){ 
         return wrongInput;   
     }
-
+//compares computer selection to user selection  
     switch (true){
             case playerSelection == computerSelection:
             return tie;
@@ -79,6 +99,7 @@ function capitalize(aString) {
             return lose;
             break;
         }
+      
         
 }
 //plays five rounds of rock paper scissors
@@ -89,7 +110,6 @@ function playGame(){
     console.log(playRound("paper"));
     console.log(playRound("rock"));
 }
-//keeps track of the score
 
 
 
