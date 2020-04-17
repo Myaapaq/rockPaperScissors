@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Scissors</title> 
+    </head>
+   <body>        
+       <script>
+
+//Spits out rock, paper, or scissors
+    function computerPlay(){
+        let num = Math.floor(Math.random() * 3);
+            switch (true) {  
+                case num == 0: 
+                    return "Rock" ;
+                    break;
+                case num == 1: 
+                    return "Paper";
+                    break;
+                case num == 2:
+                    return "Scissors"; 
+                    break;       
+                default: 
+                    pick = ('Oops!! None chosen');
+                }
+}
+//Capitalizes the users choice
+function capitalize(aString) {
+    let trimmedString = aString.trim();
+    let lowerCaseString = trimmedString.toLowerCase();
+    let firstLetter = lowerCaseString.substr(0,1);
+    firstLetter = firstLetter.toUpperCase();
+    let finalString = firstLetter + lowerCaseString.substr(1)
+        return finalString;
+}
+
+let playScore = 0;
+let compScore = 0;
+    function win() {
+                ++playScore
+                console.log("You win yay! Computer:" + compScore + " User:" + playScore)
+            }
+    function lose() {
+                ++compScore
+                console.log("Boo you suck! Computer:" + compScore + " User:" + playScore);
+                } 
+    function tie() {
+                console.log("Go again! Computer:" + compScore + " User:" + playScore);
+                }   
+
+
+           
+//Plays one round of rock paper scissors    
+
+function playRound(){
+    let playerSelection = window.prompt('Rock,Paper, or Scissors?');
+    playerSelection = capitalize(playerSelection);
+    computerSelection = computerPlay(); 
+    let wrongInput = "Wrong input you fool!!"
+    console.log('computer: ' + computerSelection + ' User: ' + playerSelection)
+
+        if (playerSelection != "Rock" && playerSelection != "Scissors" && playerSelection != "Paper"){ 
+            return wrongInput;  
+        }
+
+    switch (true){
+            case playerSelection == computerSelection:
+                tie();
+                break;
+
+            case playerSelection == "Rock" && computerSelection == "Scissors":
+                win();
+                break;
+
+            case playerSelection == "Rock" && computerSelection == "Paper":
+                lose();
+                break;
+
+            case playerSelection == "Paper" && computerSelection == "Rock":
+                win();
+                 break;
+
+            case playerSelection == "Paper" && computerSelection == "Scissors":
+                lose();
+                break;
+
+            case playerSelection == "Scissors" && computerSelection == "Paper":
+                win();
+                break;
+
+            case playerSelection == "Scissors" && computerSelection == "Rock":
+                lose();
+            break;
+        }                 
+     }
+
+
+//plays five rounds of rock paper scissors and announces winner at the end
+function playGame(){
+    console.log(playRound("rock"));
+    console.log(playRound("paper"));
+    console.log(playRound("scissors"));
+    console.log(playRound("paper"));
+    console.log(playRound("rock"));
+    if(playScore < compScore){
+        console.log('Computer wins!')
+    }else if (playScore > compScore){
+    console.log('User wins!')
+    }else {
+        console.log("It's a tie!")
+    };
+}   
+        </script>
+   </body> 
+</html>
+use prompt() to get input from the user
+asign that to the variable playerSelection

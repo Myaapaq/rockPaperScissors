@@ -4,130 +4,24 @@
         <title>Rock Paper Scissors</title> 
     </head>
    <body>        
-       <script>
+ <div id = "btns">
+    <button id= "rock">Pick Rock</button>
+    <button id= "paper">Pick Paper</button>
+    <button id= "scissors">Pick Scissors</button>
+    <!--<button id= "newRound"> New Round!</button>-->
+ </div>  
+<div id = "info"> </div>
 
-         
-//Spits out rock, paper, or scissors
-    function computerPlay(){
-        //pick random # 1-3
-             let num = Math.floor(Math.random() * 3);
-        //compares # to switch statement
-            switch (true) {
-                   
-                case num == 0: 
-                return "Rock" ;
-                    break;
-
-                case num == 1: 
-                return "Paper";
-                    break;
-
-               case num == 2:
-               return "Scissors"; 
-                     break;
-                        
-                default: 
-                    pick = ('Oops!! None chosen');
-                }
-            }
-
-//Capitalizes the users choice
-function capitalize(aString) {
-    let trimmedString = aString.trim();
-    let lowerCaseString = trimmedString.toLowerCase();
-    let firstLetter = lowerCaseString.substr(0,1);
-    firstLetter = firstLetter.toUpperCase();
-    let finalString = firstLetter + lowerCaseString.substr(1)
-        return finalString;
-}
-
-//**LEFT OFF HERE!** Trying to get the score counter to return the score, instead of just zero!! >:(
-let compScore = 0;
-let playScore = 0;     
-
-/*let win;
-let lose;
-        if (win==1){
-        playScore = 1 + playScore;
-        compScore = 0 + compScore;
-        }
-
-        if (lose==1){
-        playScore = 0 + playScore;
-        compScore = 1 + compScore;
-        }
-
-        else {
-        playScore += 0;
-        compScore += 0;
-        }*/
+<h1>Objectives: </h1>
+<p>
+    <ol>1.) Add a div for displaying results, no console.logs, all DOM methods.</ol> 
+    <ol>2.) Display the running score</ol> 
+    <ol>3.) Announce a winner of the game once one player reaches 5 points.</ol> 
+</p>
 
 
-//Plays one round of rock paper scissors    
-function playRound(playerSelection){
-    playerSelection = capitalize(playerSelection);
-    computerSelection = computerPlay();
-          
-          let win = playerSelection +" beats "+ computerSelection + ", You win yay! Computer:" + compScore + ", User:" + playScore;
-          let lose = computerSelection + " beats " + playerSelection + ", Boo you suck! Computer:" + compScore + ", User:" + playScore;
-          let tie = "You both chose " + playerSelection + ", Go again! Computer:" + compScore + ", User:" + playScore;
-          let wrongInput = "Wrong input you fool!";
-        
-        if (playerSelection != "Rock" && playerSelection != "Scissors" && playerSelection != "Paper"){ 
-        return wrongInput;   
-    }
-//compares computer selection to user selection  
-    switch (true){
-            case playerSelection == computerSelection:
-            /*compScore +=0;
-            playScore +=0;*/
-            return tie;
-            break;
-            case playerSelection == "Rock" && computerSelection == "Scissors":
-                playScore++
-                return win;
-            break;
-            case playerSelection == "Rock" && computerSelection == "Paper":
-                compScore++
-                return lose;
-              break;
-            case playerSelection == "Paper" && computerSelection == "Rock":
-                playScore++
-                return win;
-              break;
-            case playerSelection == "Paper" && computerSelection == "Scissors":
-                compScore++
-                return lose;
-              break;
-            case playerSelection == "Scissors" && computerSelection == "Paper":
-                playScore++
-                return win;
-              break;
-            case playerSelection == "Scissors" && computerSelection == "Rock":
-                compScore++
-                return lose;
-            break;
-        }            
-}
-
-//plays five rounds of rock paper scissors
-function playGame(){
+    <script src="RockPaperScissors.js"></script>  
     
-    console.log(playRound("rock"));
-    console.log(playRound("paper"));
-    console.log(playRound("scissors"));
-    console.log(playRound("paper"));
-    console.log(playRound("rock"));
-}
-
-
-
-
-
-               
-    
-           
-            
-        </script>
    </body> 
 </html>
+
