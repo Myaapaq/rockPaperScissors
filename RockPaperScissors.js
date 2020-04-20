@@ -1,10 +1,10 @@
 //DOM Manipulations               
 const info = document.querySelector('#info');
-    const score = document.createElement('score');        
+    const score = document.createElement('scoreDisplay');        
     const final = document.createElement('final');
     score.textContent = 'Score:'
 info.appendChild(score);
-info.appendChild(final);
+scoreDisplay.appendChild(final);
 
 
 //Spits out rock, paper, or scissors

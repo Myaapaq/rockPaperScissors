@@ -1,0 +1,39 @@
+#btns {
+    display: flex; 
+    flex-direction: row;
+    flex-grow: 1;
+    flex-shrink:1;
+    justify-content: space-evenly;
+    align-items:
+    
+}
+#rock, #paper, #scissors{
+    margin: 5px;
+    padding: 7px;
+    background-color: white;
+    border: black, 5px;
+    font-size: 20pt;
+    font-family: arial;
+   
+    margin-top:  80px;
+
+}
+
+body{
+    color: black;
+    font-size:20px;
+    font-family: arial;
+    text-align: center;
+    font-weight: lighter;
+}
+#title{
+    padding: 10px;
+    margin: 20px;
+    border: 1px solid;
+    font-size:30px;
+}
+#info{
+    font-weight: lighter;
+}
+
+
