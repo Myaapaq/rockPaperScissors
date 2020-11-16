@@ -2,7 +2,7 @@
 const info = document.querySelector('#info');
     const score = document.createElement('scoreDisplay');        
     const final = document.createElement('final');
-    score.textContent = 'Score:'
+    score.textContent = 'Score:' 
 info.appendChild(score);
 scoreDisplay.appendChild(final);
 
